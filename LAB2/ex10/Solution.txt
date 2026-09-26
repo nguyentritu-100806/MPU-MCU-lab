@@ -1,0 +1,5 @@
+Giải pháp tạo hoạt ảnh dịch chuyển ký tự sang trái trên ma trận LED được thực hiện bằng cách kết hợp hai bộ định thời phần mềm.Timer 0 (10ms) 
+đảm nhiệm quét liên tục các hàng để duy trì hiển thị, trong khi Timer 1 (100ms) kiểm soát tốc độ khung hình của animation. Do mạch được cấu hình 
+quét theo chiều ngang, việc cuộn chữ sử dụng thuật toán dịch bit (<< 1) trên từng phần tử của mảng dữ liệu, đồng thời chuyển bit bị khuất (MSB) 
+nối vòng lại vào đuôi (LSB). Để loại bỏ hiện tượng xé hình khi chữ di chuyển, quá trình dịch bit chỉ được phép thực thi vào khoảnh khắc Timer 0 
+đã quét xong trọn vẹn một khung hình màn hình.
