@@ -148,7 +148,7 @@ int main(void)
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start_IT(&htim2); //kích hoạt Timer 2
-  setTimer0(10); //quét led mỗi 10ms
+  setTimer0(100); //quét led mỗi 100ms
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -164,7 +164,7 @@ int main(void)
 		  if(index_led_matrix>=MAX_LED_MATRIX)
 			  index_led_matrix=0;
 
-		  setTimer0(10);//đặt lại timer
+		  setTimer0(100);//đặt lại timer
 	  }
   }
   /* USER CODE END 3 */

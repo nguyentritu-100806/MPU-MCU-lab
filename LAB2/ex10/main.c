@@ -158,8 +158,8 @@ int main(void)
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start_IT(&htim2); //kích hoạt Timer 2
-  setTimer0(10); //quét led mỗi 10ms
-  setTimer1(100); //dịch chữ mỗi 100ms
+  setTimer0(50); //quét led mỗi 50ms
+  setTimer1(400); //dịch chữ mỗi 400ms
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -173,7 +173,7 @@ int main(void)
 	  //quét hết 8 hàng rồi mới update animation
 	  if(timer1_flag == 1){
 	  	update_animation = 1;
-	  	setTimer1(100);
+	  	setTimer1(400);
 	  }
 	  if(timer0_flag==1){
 		  updateLEDMatrix(index_led_matrix);
@@ -185,10 +185,10 @@ int main(void)
 					uint8_t MSB = (matrix_buffer[i] & 0x80) >> 7;//lấy MSB
 					matrix_buffer[i] = (matrix_buffer[i] << 1) | MSB;//dịch hàng sang phải rồi ghép MSB vào đuôi
 				  }
-				update_animation = 0; //hạ cờ, chờ khung hình tiếp theo
+				update_animation = 0; //hạ flag, chờ khung hình tiếp theo
 			  }
 		  }
-		  setTimer0(10);//đặt lại timer
+		  setTimer0(50);//đặt lại timer
 	  }
 
   }
